@@ -2,15 +2,16 @@ import React from 'react'
 
 const Movies = () => {
     const moviesList = [
-        'attack on titan',
-        'john wick',
-        'pirate of the carribeans',
-        'ant man and the wasp',
-        'deep blue sea'
+        {title: 'attack on titan', id: 1},
+        {title: 'john wick', id: 2},
+        {title: 'pirate of the carribeans', id: 3},
+        {title: 'ant man and the wasp', id: 1},
+        {title: 'deep blue sea', id: 1},
+        
     ];
 
     const displayMovies = moviesList.map(movies=>{
-        return <ul><li>{movies}</li></ul>;
+        return <ul><li>title: {movies.title} <br></br></li></ul>;
     })
   return (
 
