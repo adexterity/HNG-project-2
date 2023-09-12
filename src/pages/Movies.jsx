@@ -1,76 +1,66 @@
-import React, {useEffect, useState} from 'react';
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Spinner from "../components/Spinner";
 
 const Movies = () => {
+  const API_KEY = "152cd7ac66bc4131bfa1eec447a9d82d";
+  const BASE_URL = "https://api.themoviedb.org/3";
+  const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
-  const API_KEY = '152cd7ac66bc4131bfa1eec447a9d82d';
+  // moviesList will be populated with the response from the API
+  const [moviesList, setMoviesList] = useState([]);
+  // console.log(moviesList);
 
-  const [moviesList, setMoviesList] = useState([])
-    /* const moviesList = [
-        {title: 'attack on titan', id: 1},
-        {title: 'john wick', id: 2},
-        {title: 'pirate of the carribeans', id: 3},
-        {title: 'ant man and the wasp', id: 1},
-        {title: 'deep blue sea', id: 1},
-        
-    ]; */
-
-    // API request to TMDB
-    useEffect(()=>{
-      const fetchMovies = async ()=>{
-        try{
-          const request = await axios.get('https://api.themoviedb.org/3/movie/157336?api_key=152cd7ac66bc4131bfa1eec447a9d82d&append_to_response=videos,images')
-          const data = await request;
-          console.log(data)
-        }
-        catch(err){
-          console.log(err)
-        }
+  // API request to TMDB when the component first render
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const request = await axios.get(
+          `${BASE_URL}/discover/movie?api_key=${API_KEY}`
+        );
+        const data = request.data.results;
+        console.log(data);
+        setMoviesList(data);
+      } catch (err) {
+        console.log(err);
       }
-      fetchMovies();
-    }, [])
+    };
+    fetchMovies();
+  }, []);
 
+  let displayMovies;
 
- /* 
- 
- useEffect(()=>{
-    
-    const fetchLyrics = async ()=>{
-        try{
-            //request for lyrics in musixmatch
-            const request =await axios.get(`https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${id}&apikey=dd85c85640d196139fd82e7e22b5064a`);
-            const data = await request.data.message.body.lyrics.lyrics_body;
-            // console.log(request.data.message.body.lyrics.lyrics_body);
-            setLyrics(data);
+  // display spinner while waiting to get data from the API
+  if (moviesList === undefined || moviesList.length < 1) {
+    return <Spinner />;
+  } else {
+    displayMovies = moviesList.map((movies) => {
+      return (
+        <li className="border col-span-1 mb-4 row-span-1" key={movies.id}>
+          <div className="card">
+            <div className="poster">
+              <img src={`${IMAGE_BASE_URL}${movies.poster_path}`} />
+            </div>
 
-            //request for track details in musixmatch
-            const request2 = await axios.get(`https://api.musixmatch.com/ws/1.1/track.get?track_id=${id}&apikey=dd85c85640d196139fd82e7e22b5064a`);
-            const data2 = await request2.data.message.body.track;
-            setTrack(data2);
-            
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
-    fetchLyrics();
- }, [id]);
-
-
- */
-
-
-
-
-    const displayMovies = moviesList.map(movies=>{
-        return <ul><li>title: {movies.title}</li></ul>;
-    })
+            <h3 className="title font-semibold">{movies.title}</h3>
+            <div className="rating"></div>
+            <div className="genre"></div>
+          </div>
+        </li>
+      );
+    });
+  }
   return (
-
-    <div>
-      {displayMovies}
+    <div className="container pt-7">
+      <div className="flex justify-between pt-3 pb-7">
+        <h2 className="text-[30px] font-bold">Featured Movie</h2>
+        <p className="text-[#BE123C]">
+          <a href="#">See more</a> <span>&gt;</span>
+        </p>
+      </div>
+      <ul className="grid grid-cols-5 grid-rows-2 gap-4">{displayMovies}</ul>
     </div>
-  )
-}
+  );
+};
 
-export default Movies
+export default Movies;

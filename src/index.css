@@ -6,13 +6,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
 }
 
-body{
-  padding: 0px 70px;
+.container {
+  @apply my-0 mx-auto w-[90vw];
 }
-
-
-
-
