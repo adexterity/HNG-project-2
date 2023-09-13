@@ -4,11 +4,11 @@ import Poster from "../assets/Poster.png";
 const HeroSection = () => {
   return (
     <div
-      className=" flex items-center bg-hero-poster bg-center bg-cover h-[70vh] border text-white"
+      className=" flex items-center bg-hero-poster bg-center bg-cover h-[70vh] text-white"
       style={{ backgroundImage: `url(${Poster})` }}
     >
-      <div className="hero-text container border">
-        <h1 className="w-[300px] border text-[45px] font-[700]">
+      <div className="hero-text container">
+        <h1 className="w-[300px] text-[45px] font-[700]">
           John Wick 3: <br /> Parabellum
         </h1>
         <div className="rating"></div>

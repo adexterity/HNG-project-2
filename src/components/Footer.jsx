@@ -1,6 +1,8 @@
 import React from "react";
 
 const Footer = () => {
+  const date = new Date();
+
   return (
     <footer className="footer-section container flex justify-center items-center pt-20 pb-10 flex-col">
       <div className="icons mb-6">
@@ -23,7 +25,7 @@ const Footer = () => {
         <p className="font-bold">Press Room</p>
       </div>
       <div className="copyright text-[#6B7280]">
-        &copy; 2021 MovieBox by Adriana Eka Prayudha
+        &copy; {date.getFullYear()} MovieBox by Adexterity
       </div>
     </footer>
   );
