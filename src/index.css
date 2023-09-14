@@ -13,3 +13,13 @@
 .container {
   @apply my-0 mx-auto w-[90vw];
 }
+
+.movie-nav::after {
+  content: "";
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 10px;
+
+  background-color: #be123c;
+}

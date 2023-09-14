@@ -55,7 +55,7 @@ const MovieDetails = () => {
     return (
       <span
         key={genre.id}
-        className="text-[#BE123C] mr-2 rounded-xl border border-[#F8E7EB] px-3"
+        className="text-[#BE123C] mr-1 sm:text-[12px] text-[8px] sm:mr-2 rounded-xl border border-[#F8E7EB] px-3"
       >
         {genre.name}
       </span>
@@ -64,13 +64,13 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details py-5 flex">
-      <div className="h-100% w-[10vw] flex flex-col justify-evenly items-center border-black border-2 rounded-tr-[30px] rounded-br-[30px]">
+      <div className="hidden h-100% w-[10vw] md:flex flex-col justify-evenly  border-black border-2 rounded-tr-[30px] rounded-br-[30px]">
         <Link to="/">
           <div className="flex items-center">
             <span className="inline-block">
-              <img src={tv} />
+              <img src={tv} className="h-8" />
             </span>
-            MovieBox
+            <span className="font-bold">MovieBox</span>
           </div>
         </Link>
         <div className="flex items-center">
@@ -79,9 +79,12 @@ const MovieDetails = () => {
           </span>
           Home
         </div>
-        <div className="flex items-center justify-between">
+        <div
+          className="flex items-center justify-between movie-nav"
+          style={{ backgroundColor: "rgba(190,18,60,0.1)" }}
+        >
           <img src={camCorder} className="w-6 inline-block mr-3" />
-          <span>Movies</span>
+          <span className="text-[#BE123C] py-4">Movies</span>
         </div>
         <div className="flex items-center">
           <img src={televison} className="w-6 inline-block mr-3" />
@@ -91,7 +94,13 @@ const MovieDetails = () => {
           <img src={calendar} className="w-6 inline-block mr-3" />
           <span>Upcoming</span>
         </div>
-        <div>
+        <div
+          className="rounded-lg text-[13px] w-[100px]"
+          style={{
+            backgroundColor: "rgba(248, 231, 235, 0.4)",
+            border: "1px solid rgba(190, 18, 60, 0.7)",
+          }}
+        >
           <div>
             play some quizes and earn free tickets 50k people are playing now
           </div>
@@ -116,9 +125,9 @@ const MovieDetails = () => {
           <h2 className="text-white text-xl">Watch Trailer</h2>
         </div>
 
-        <div className="flex gap-4 pt-4">
+        <div className="flex gap-4 pt-4 flex-col sm:flex-row">
           <div className="left-details">
-            <div className="movie-header flex mr-2 font-bold gap-2 items-center ">
+            <div className="movie-header flex flex-col sm:flex-row mr-2 text-[11px] font-bold gap-2 items-center ">
               <h2 className="movie-title" data-testid="movie-title">
                 {title}
               </h2>
@@ -132,10 +141,7 @@ const MovieDetails = () => {
               <h2 className="movie-duration" data-testid="movie-runtime">
                 {runtime}m
               </h2>
-              <h2 className="movie-genre">
-                {getGenres}
-                <span></span>
-              </h2>
+              <h2 className="movie-genre text-[10px]">{getGenres}</h2>
             </div>
             <div className="movie-plot my-4">
               <p>{overview}</p>
@@ -158,7 +164,7 @@ const MovieDetails = () => {
                 </span>
               </div>
             </div>
-            <div className="movie-nomination flex  border rounded-xl w-[500px] my-4">
+            <div className="movie-nomination flex flex-col sm:flex-row border rounded-xl w-full sm:w-[500px] my-4">
               <div className="movie-rating-details bg-[#BE123C] rounded py-2 px-4 text-white">
                 Top rated movie #65
               </div>
@@ -186,7 +192,7 @@ const MovieDetails = () => {
                 More watch options
               </div>
             </div>
-            <div className=" w-[200px] h-[200px] bg-blue-400 rounded-md relative overflow-hidden">
+            <div className="w-full sm:w-[200px] h-[200px] bg-blue-400 rounded-md relative overflow-hidden">
               <div className="absolute bottom-0 left-0 w-full h-8 bg-black text-white">
                 <span>
                   <i className="fa-solid fa-list mr-2"></i>
