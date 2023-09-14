@@ -8,7 +8,7 @@ const NavBar = () => {
   const [searchResult, setSearchResult] = useState([]); */
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       setScrolling(true);
     } else {
       setScrolling(false);
@@ -38,6 +38,7 @@ const NavBar = () => {
     }
   }, [searchQuery]);
  */
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
