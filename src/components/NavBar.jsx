@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import tv from "../assets/tv.png";
+import axios from "axios";
 
 const NavBar = () => {
   const [scrolling, setScrolling] = useState(false);
+  /* const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState([]); */
+
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setScrolling(true);
@@ -11,6 +15,29 @@ const NavBar = () => {
     }
   };
 
+  /*  const fetchSearchMovies = async () => {
+    try {
+      const API_KEY = "152cd7ac66bc4131bfa1eec447a9d82d";
+      const BASE_URL = "https://api.themoviedb.org/3";
+      const apiUrl = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`;
+      const request = await axios.get(apiUrl);
+      if (request.ok) {
+        const data = request;
+        console.log(data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }; */
+
+  /* useEffect(() => {
+    if (searchQuery) {
+      fetchSearchMovies();
+    } else {
+      fetchSearchMovies([]);
+    }
+  }, [searchQuery]);
+ */
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
