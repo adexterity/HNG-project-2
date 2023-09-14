@@ -9,7 +9,7 @@ import camCorder from "../assets/camCorder.svg";
 import exit from "../assets/exit.svg";
 import televison from "../assets/televison.svg";
 import playBg from "../assets/playBg.svg";
-import play from "../assets/play.svg";
+// import play from "../assets/play.svg";
 
 const MovieDetails = () => {
   const API_KEY = "152cd7ac66bc4131bfa1eec447a9d82d";
@@ -120,7 +120,7 @@ const MovieDetails = () => {
             className="bg-no-repeat bg-contain "
             style={{ backgroundImage: `url(${playBg})` }}
           >
-            <img className="h-[70px] p-2" src={play} />
+            <img className="h-[70px] p-2" src={playBg} />
           </div>
           <h2 className="text-white text-xl">Watch Trailer</h2>
         </div>
