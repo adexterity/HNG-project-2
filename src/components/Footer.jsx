@@ -15,11 +15,11 @@ const Footer = () => {
         <span className="twitter mr-10 ">
           <i className="fa-brands fa-twitter text-[20px]"></i>
         </span>
-        <span className="youtube mr-10 ">
+        <span className="youtube ">
           <i className="fa-brands fa-youtube text-[20px]"></i>
         </span>
       </div>
-      <div className="flex gap-10 mb-6">
+      <div className="flex gap-3 sm:gap-10 mb-6 text-[10px]">
         <p className="font-bold">Conditions of Use</p>
         <p className="font-bold">Privacy & Policy</p>
         <p className="font-bold">Press Room</p>

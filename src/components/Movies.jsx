@@ -46,22 +46,15 @@ const Movies = () => {
 
   return (
     <div className="container pt-7">
-      <div className="flex justify-between pt-3 pb-7">
-        <h2 className="text-[30px] font-bold">Featured Movie</h2>
+      <div className="flex justify-between items-center pt-3 pb-7">
+        <h2 className="text-[20px] sm:text-[30px] font-bold">Featured Movie</h2>
         <p className="text-[#BE123C]">
           <a href="#">See more</a> <span>&gt;</span>
         </p>
       </div>
-      <ul className="grid grid-cols-5 grid-rows-2 gap-4">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 grid-rows-2 gap-4">
         {displayMoviesUI()}
       </ul>
-
-      {/* <Routes>
-        <Route
-          path="/movies/:id"
-          element={<MovieDetails selectedMovie={selectedMovie} />}
-        />
-      </Routes> */}
     </div>
   );
 };

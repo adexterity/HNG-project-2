@@ -8,6 +8,8 @@ import calendar from "../assets/calendar.svg";
 import camCorder from "../assets/camCorder.svg";
 import exit from "../assets/exit.svg";
 import televison from "../assets/televison.svg";
+import playBg from "../assets/playBg.svg";
+import play from "../assets/play.svg";
 
 const MovieDetails = () => {
   const API_KEY = "152cd7ac66bc4131bfa1eec447a9d82d";
@@ -102,9 +104,17 @@ const MovieDetails = () => {
       </div>
       <div className="flex flex-col mx-auto w-[80vw]">
         <div
-          className="movie-image bg-hero-poster bg-center bg-cover h-[50vh] rounded-xl"
+          className="movie-image bg-hero-poster bg-center bg-cover h-[50vh] rounded-xl flex flex-col justify-center items-center"
           style={{ backgroundImage: `url(${IMAGE_BASE_URL}${backdrop_path})` }}
-        ></div>
+        >
+          <div
+            className="bg-no-repeat bg-contain "
+            style={{ backgroundImage: `url(${playBg})` }}
+          >
+            <img className="h-[70px] p-2" src={play} />
+          </div>
+          <h2 className="text-white text-xl">Watch Trailer</h2>
+        </div>
 
         <div className="flex gap-4 pt-4">
           <div className="left-details">
@@ -194,6 +204,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-// style="background-image: url(&quot;https://image.tmdb.org/t/p/w500/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg&quot;);"
-// style="background-image: url(&quot;https://image.tmdb.org/t/p/w500/5mzr6JZbrqnqD8rCEvPhuCE5Fw2.jpg&quot;);"
