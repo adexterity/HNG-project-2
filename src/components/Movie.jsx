@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import heart from "../assets/heart.svg";
 import heart2 from "../assets/heart2.svg";
 import { useNavigate } from "react-router-dom";
