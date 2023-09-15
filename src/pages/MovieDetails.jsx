@@ -139,12 +139,12 @@ const MovieDetails = () => {
               <h2 className="movie-rating">PG-13</h2>
               <div className="bg-black w-1 h-1 rounded"></div>
               <h2 className="movie-duration" data-testid="movie-runtime">
-                {runtime}m
+                {runtime}
               </h2>
               <h2 className="movie-genre text-[10px]">{getGenres}</h2>
             </div>
             <div className="movie-plot my-4">
-              <p>{overview}</p>
+              <p data-testid="movie-overview">{overview}</p>
             </div>
             <div className="movie-cast">
               <div className="movie-director">

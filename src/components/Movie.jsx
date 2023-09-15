@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import heart from "../assets/heart.svg";
 import heart2 from "../assets/heart2.svg";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Movie = ({ movie, url }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const redirect = (id) => {
-    navigate(`/movies/${id}`);
-  };
+  // const redirect = (id) => {
+  //   navigate(`/movies/${id}`);
+  // };
 
   //   console.log(movie);
   const [isFav, setIsFav] = useState(false);
@@ -19,7 +20,7 @@ const Movie = ({ movie, url }) => {
     setIsFav(!isFav);
   };
 
-  const releaseDate = movie.release_date.split("-");
+  // const releaseDate = movie.release_date.split("-");
 
   /* const handleClick = () => {
     console.log(movie.id);
@@ -31,23 +32,35 @@ const Movie = ({ movie, url }) => {
       data-testid="movie-card"
       key={movie.id}
     >
-      <div className="poster relative" data-testid="movie-poster">
-        <div
-          className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
-          onClick={toggleIsFav}
-        >
-          <img src={isFav ? heart : heart2} className="h-6 " alt="favourite" />
+      <Link to={`/movies/${movie.id}`}>
+        <div className="poster relative">
+          <div
+            className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
+            onClick={toggleIsFav}
+          >
+            <img
+              src={isFav ? heart : heart2}
+              className="h-6 "
+              alt="favourite"
+            />
+          </div>
+          <img
+            src={`${url}${movie.poster_path}`}
+            // onClick={() => redirect(movie.id)}
+            data-testid="movie-poster"
+          />
         </div>
-        <img
-          src={`${url}${movie.poster_path}`}
-          onClick={() => redirect(movie.id)}
-        />
-      </div>
-      <p className=" font-light text-[12px] my-2">USA, {releaseDate[0]}</p>
-      <h3 className="title font-semibold" data-testid="movie-title">
-        {movie.title}
-      </h3>
-      <div className="genre"></div>
+        <p
+          className=" font-light text-[12px] my-2"
+          data-testid="movie-release-date"
+        >
+          {movie.release_date}
+        </p>
+        <h3 className="title font-semibold" data-testid="movie-title">
+          {movie.title}
+        </h3>
+        <div className="genre"></div>
+      </Link>
     </li>
   );
 };
