@@ -112,11 +112,12 @@ const MovieDetails = () => {
       </div>
       <div className="flex flex-col mx-auto w-[80vw]">
         <div
+          data-="movie-poster"
           className="movie-image bg-hero-poster bg-center bg-cover h-[50vh] rounded-xl flex flex-col justify-center items-center"
           style={{ backgroundImage: `url(${IMAGE_BASE_URL}${backdrop_path})` }}
         >
           <div
-            className="bg-no-repeat bg-contain "
+            className="bg-no-repeat bg-contain"
             style={{ backgroundImage: `url(${playBg})` }}
           >
             <img className="h-[70px] p-2" src={playBg} />
