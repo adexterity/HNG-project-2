@@ -15,21 +15,20 @@ const Movie = ({ movie, url }) => {
 
   const releaseDate = movie.release_date.split("-");
 
-  const handleClick = () => {
+  /* const handleClick = () => {
     console.log(movie.id);
-  };
+  }; */
 
   return (
     <Link
       to={{
-        pathname: `movies/${movie.id}`,
+        pathname: `/movies/${movie.id}`,
       }}
     >
       <li
         className="border col-span-1 mb-4 row-span-1 min-w-full"
         data-testid="movie-card"
         key={movie.id}
-        onClick={() => handleClick()}
       >
         <div className="poster relative" data-testid="movie-poster">
           <div
