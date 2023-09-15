@@ -41,6 +41,7 @@ const Movie = ({ movie, url }) => {
               alt="favourite"
             />
           </div>
+          -{" "}
           <img
             src={`${url}${movie.poster_path}`}
             onClick={(e) => e.stopPropagation()}
