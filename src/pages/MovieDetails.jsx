@@ -41,7 +41,7 @@ const MovieDetails = () => {
 
   const { title, release_date, runtime, backdrop_path, overview, genres } =
     selectedMovie;
-  const releaseDate = release_date.split("-");
+  // const releaseDate = release_date.split("-");
 
   /* const newRunTime = (time) => {
     const hour = Math.floor(time / 60);
@@ -132,7 +132,7 @@ const MovieDetails = () => {
               </h2>
               <div className=" bg-black w-1 h-1 rounded"></div>
               <h2 className="movie-release" data-testid="movie-release-date">
-                {releaseDate[0]}
+                {release_date}
               </h2>
               <div className="bg-black w-1 h-1 rounded"></div>
               <h2 className="movie-rating">PG-13</h2>

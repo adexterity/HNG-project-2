@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import heart from "../assets/heart.svg";
 import heart2 from "../assets/heart2.svg";
-// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Movie = ({ movie, url }) => {
-  // const navigate = useNavigate();
-
-  // const redirect = (id) => {
-  //   navigate(`/movies/${id}`);
-  // };
-
   //   console.log(movie);
   const [isFav, setIsFav] = useState(false);
 
@@ -44,11 +37,7 @@ const Movie = ({ movie, url }) => {
               alt="favourite"
             />
           </div>
-          <img
-            src={`${url}${movie.poster_path}`}
-            // onClick={() => redirect(movie.id)}
-            data-testid="movie-poster"
-          />
+          <img src={`${url}${movie.poster_path}`} data-testid="movie-poster" />
         </div>
         <p
           className=" font-light text-[12px] my-2"
