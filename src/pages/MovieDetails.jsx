@@ -27,7 +27,7 @@ const MovieDetails = () => {
         );
         const data = response.data;
         setSelectedMovie(data);
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.log(err);
       }
