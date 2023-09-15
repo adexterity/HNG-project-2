@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import heart from "../assets/heart.svg";
 import heart2 from "../assets/heart2.svg";
+import { useNavigate } from "react-router-dom";
 
 const Movie = ({ movie, url }) => {
+  const navigate = useNavigate();
+
+  const redirect = (id) => {
+    navigate(`/movies/${id}`);
+  };
+
   //   console.log(movie);
   const [isFav, setIsFav] = useState(false);
 
@@ -20,40 +27,29 @@ const Movie = ({ movie, url }) => {
   }; */
 
   return (
-    <Link
-      to={{
-        pathname: `/movies/${movie.id}`,
-      }}
+    <li
+      className="border col-span-1 mb-4 row-span-1 min-w-full"
+      data-testid="movie-card"
+      key={movie.id}
     >
-      <li
-        className="border col-span-1 mb-4 row-span-1 min-w-full"
-        data-testid="movie-card"
-        key={movie.id}
-      >
-        <div className="poster relative" data-testid="movie-poster">
-          <div
-            className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
-            onClick={toggleIsFav}
-          >
-            <img
-              src={isFav ? heart : heart2}
-              className="h-6 "
-              alt="favourite"
-            />
-          </div>
-          -{" "}
-          <img
-            src={`${url}${movie.poster_path}`}
-            onClick={(e) => e.stopPropagation()}
-          />
+      <div className="poster relative" data-testid="movie-poster">
+        <div
+          className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
+          onClick={toggleIsFav}
+        >
+          <img src={isFav ? heart : heart2} className="h-6 " alt="favourite" />
         </div>
-        <p className=" font-light text-[12px] my-2">USA, {releaseDate[0]}</p>
-        <h3 className="title font-semibold" data-testid="movie-title">
-          {movie.title}
-        </h3>
-        <div className="genre"></div>
-      </li>
-    </Link>
+        <img
+          src={`${url}${movie.poster_path}`}
+          onClick={() => redirect(movie.id)}
+        />
+      </div>
+      <p className=" font-light text-[12px] my-2">USA, {releaseDate[0]}</p>
+      <h3 className="title font-semibold" data-testid="movie-title">
+        {movie.title}
+      </h3>
+      <div className="genre"></div>
+    </li>
   );
 };
 
