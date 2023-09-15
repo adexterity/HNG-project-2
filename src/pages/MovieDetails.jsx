@@ -119,7 +119,7 @@ const MovieDetails = () => {
             className="bg-no-repeat bg-contain "
             style={{ backgroundImage: `url(${playBg})` }}
           >
-            <img className="h-[70px] p-2" src={play} />
+            <img className="h-[70px] p-2" src={playBg} />
           </div>
           <h2 className="text-white text-xl">Watch Trailer</h2>
         </div>
