@@ -25,20 +25,14 @@ const Movie = ({ movie, url }) => {
       data-testid="movie-card"
       key={movie.id}
     >
-      <Link to={`/movies/${movie.id}`}>
-        <div className="poster relative">
-          <div
-            className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
-            onClick={toggleIsFav}
-          >
-            <img
-              src={isFav ? heart : heart2}
-              className="h-6 "
-              alt="favourite"
-            />
-          </div>
-          <img src={`${url}${movie.poster_path}`} data-testid="movie-poster" />
+      <Link to={`/movies/${movie.id}`} className="relative">
+        <div
+          className="heart bg-slate-100 w-8 h-8 rounded-full absolute top-2 right-2 flex justify-center items-center"
+          onClick={toggleIsFav}
+        >
+          <img src={isFav ? heart : heart2} className="h-6 " alt="favourite" />
         </div>
+        <img src={`${url}${movie.poster_path}`} data-testid="movie-poster" />
         <p
           className=" font-light text-[12px] my-2"
           data-testid="movie-release-date"

@@ -16,7 +16,7 @@ const Movies = () => {
     const fetchMovies = async () => {
       try {
         const request = await axios.get(
-          `${BASE_URL}/movie/popular?api_key=${API_KEY}`
+          `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
         );
         if (request.status === 200) {
           const data = request.data.results;
